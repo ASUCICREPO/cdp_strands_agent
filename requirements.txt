@@ -1,0 +1,7 @@
+strands
+mcp
+streamlit
+boto3
+pydantic
+python-multipart
+requests
