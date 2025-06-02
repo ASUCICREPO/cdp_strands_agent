@@ -206,6 +206,185 @@ Keep it concise and focused. No lengthy explanations.
         return str(response)
     except Exception as e:
         return f"Requirements analysis failed: {e}"
+    
+
+def run_repository_structure_analysis(agent, project_name):
+    """Analyze ASUCICREPO repository structure patterns"""
+    prompt = f"""
+Analyze ASUCICREPO repository structure patterns for {project_name}:
+
+Use GitHub MCP tools to examine ACTUAL repository structures in ASUCICREPO. Focus on these real projects:
+
+**CDK Projects to Analyze:**
+- BedrockKnowledgeBases - Python CDK construct patterns
+- Project_Constructs - AWS constructs collection
+- PDF_Accessibility - Document processing with CDK
+- boystown_perplexity_implementation - Serverless API structure
+
+**Analysis Tasks:**
+1. **Repository Structure** - Examine folder layouts, file organization patterns
+2. **CDK Patterns** - Look at actual CDK stack structures, construct usage
+3. **File Naming** - Identify naming conventions for stacks, constructs, lambdas
+4. **Dependencies** - Check package.json/requirements.txt patterns
+5. **Configuration** - Look at cdk.json, tsconfig.json, setup patterns
+6. **Lambda Organization** - How Lambda functions are structured and organized
+7. **Infrastructure Patterns** - Common AWS service combinations and configurations
+
+Search the repository for:
+- `/lib/` folders (CDK stack definitions)
+- `/lambda/` or `/src/` folders (Lambda function code)
+- `/bin/` folders (CDK app entry points)
+- `package.json`, `requirements.txt`, `setup.py` files
+- `cdk.json`, `tsconfig.json` configuration files
+- README.md files for setup and deployment patterns
+
+Provide detailed analysis of:
+1. **Common Folder Structure** (from actual repos)
+2. **CDK Stack Patterns** (actual code patterns used)
+3. **Lambda Function Organization** (how functions are structured)
+4. **Configuration Standards** (actual config file patterns)
+5. **Naming Conventions** (from real project examples)
+6. **Deployment Patterns** (from actual deployment scripts)
+
+Focus ONLY on patterns from repositories that actually exist in ASUCICREPO.
+"""
+    
+    try:
+        response = agent(prompt)
+        return str(response)
+    except Exception as e:
+        return f"Repository structure analysis failed: {e}"
+
+def run_typescript_cdk_generation(agent, requirements_text, project_name, similar_projects_context="", repo_structure_context=""):
+    """Generate TypeScript CDK with actual ASUCICREPO patterns"""
+    prompt = f"""
+Generate TypeScript CDK for {project_name} following ASUCICREPO patterns:
+
+Requirements: {requirements_text}
+Similar Projects: {similar_projects_context}
+Repository Structure Analysis: {repo_structure_context}
+
+Use GitHub MCP tools to examine ACTUAL TypeScript CDK code from these ASUCICREPO projects:
+- BedrockKnowledgeBases (if it has TypeScript)
+- Project_Constructs 
+- Any other TypeScript CDK projects in ASUCICREPO
+
+**Generate Complete Repository Structure:**
+
+1. **Repository Structure** (based on actual ASUCICREPO patterns):
+```
+{project_name}/
+├── bin/
+│   └── {project_name}.ts          # CDK app entry point
+├── lib/
+│   ├── {project_name}-stack.ts    # Main stack
+│   └── constructs/                # Custom constructs
+├── lambda/
+│   └── functions/                 # Lambda function code
+├── test/
+│   └── {project_name}.test.ts     # Unit tests
+├── package.json                   # Dependencies
+├── tsconfig.json                  # TypeScript config
+├── cdk.json                       # CDK config
+└── README.md                      # Setup instructions
+```
+
+2. **Generate Complete Files** following ASUCICREPO patterns:
+
+**bin/{project_name}.ts** - CDK app entry point (follow actual ASUCICREPO patterns)
+**lib/{project_name}-stack.ts** - Main stack implementation (use actual construct patterns from ASUCICREPO)
+**lib/constructs/custom-construct.ts** - Custom construct if needed (follow ASUCICREPO construct patterns)
+**lambda/functions/main-function.ts** - Lambda function code (follow ASUCICREPO Lambda patterns)
+**package.json** - Dependencies (use actual versions and dependencies from ASUCICREPO projects)
+**tsconfig.json** - TypeScript configuration (copy from actual ASUCICREPO projects)
+**cdk.json** - CDK configuration (follow actual ASUCICREPO CDK configs)
+**README.md** - Setup and deployment instructions (follow ASUCICREPO documentation patterns)
+
+**Requirements:**
+- Use ACTUAL import patterns from ASUCICREPO TypeScript projects
+- Follow ACTUAL naming conventions from ASUCICREPO
+- Use ACTUAL CDK construct patterns from ASUCICREPO
+- Include ACTUAL dependency versions from ASUCICREPO projects
+- Follow ACTUAL folder organization from ASUCICREPO
+- Reference specific files and patterns from actual ASUCICREPO repositories
+
+Provide COMPLETE working code for ALL files, not just snippets.
+"""
+    
+    try:
+        response = agent(prompt)
+        return str(response)
+    except Exception as e:
+        return f"TypeScript CDK generation failed: {e}"
+
+def run_python_cdk_generation(agent, requirements_text, project_name, similar_projects_context="", repo_structure_context=""):
+    """Generate Python CDK with actual ASUCICREPO patterns"""
+    prompt = f"""
+Generate Python CDK for {project_name} following ASUCICREPO patterns:
+
+Requirements: {requirements_text}
+Similar Projects: {similar_projects_context}
+Repository Structure Analysis: {repo_structure_context}
+
+Use GitHub MCP tools to examine ACTUAL Python CDK code from these ASUCICREPO projects:
+- BedrockKnowledgeBases
+- PDF_Accessibility
+- Any other Python CDK projects in ASUCICREPO
+
+**Generate Complete Repository Structure:**
+
+1. **Repository Structure** (based on actual ASUCICREPO patterns):
+```
+{project_name}/
+├── app.py                         # CDK app entry point
+├── {project_name}/
+│   ├── __init__.py
+│   ├── {project_name}_stack.py    # Main stack
+│   └── constructs/                # Custom constructs
+│       └── __init__.py
+├── lambda_functions/
+│   └── main_function/             # Lambda function code
+│       ├── __init__.py
+│       └── handler.py
+├── tests/
+│   ├── __init__.py
+│   └── unit/
+│       └── test_{project_name}_stack.py
+├── requirements.txt               # Dependencies
+├── requirements-dev.txt           # Dev dependencies
+├── setup.py                       # Package setup
+├── cdk.json                       # CDK config
+└── README.md                      # Setup instructions
+```
+
+2. **Generate Complete Files** following ASUCICREPO patterns:
+
+**app.py** - CDK app entry point (follow actual ASUCICREPO patterns)
+**{project_name}/{project_name}_stack.py** - Main stack implementation (use actual construct patterns from ASUCICREPO)
+**{project_name}/constructs/custom_construct.py** - Custom construct if needed (follow ASUCICREPO construct patterns)
+**lambda_functions/main_function/handler.py** - Lambda function code (follow ASUCICREPO Lambda patterns)
+**requirements.txt** - Dependencies (use actual versions and dependencies from ASUCICREPO projects)
+**requirements-dev.txt** - Dev dependencies (copy from actual ASUCICREPO projects)
+**setup.py** - Package setup (follow ASUCICREPO setup patterns)
+**cdk.json** - CDK configuration (follow actual ASUCICREPO CDK configs)
+**README.md** - Setup and deployment instructions (follow ASUCICREPO documentation patterns)
+
+**Requirements:**
+- Use ACTUAL import patterns from ASUCICREPO Python projects
+- Follow ACTUAL naming conventions from ASUCICREPO (snake_case, etc.)
+- Use ACTUAL CDK construct patterns from ASUCICREPO
+- Include ACTUAL dependency versions from ASUCICREPO projects
+- Follow ACTUAL folder organization from ASUCICREPO
+- Reference specific files and patterns from actual ASUCICREPO repositories
+
+Provide COMPLETE working code for ALL files, not just snippets.
+"""
+    
+    try:
+        response = agent(prompt)
+        return str(response)
+    except Exception as e:
+        return f"Python CDK generation failed: {e}"
 
 def run_architecture_analysis(agent, requirements_text, project_name, similar_projects_context=""):
     """Enhanced architecture with similar projects context"""
@@ -657,14 +836,43 @@ Non-Functional Requirements:
                 st.info("👆 Click 'Create Architecture' to start")
         
         # CDK Code Tab
+        # Updated sections for the main() function - replace the CDK Code Tab section
+
+        # CDK Code Tab
         with tab3:
             st.markdown("### 💻 CDK Implementation")
+            
+            # Add Repository Structure Analysis button
+            if st.button("🏗️ Analyze Repository Structure", key="repo_structure_btn"):
+                st.session_state.processing_repo_structure = True
+                st.rerun()
+            
+            # Show repository structure analysis processing or results
+            if st.session_state.get('processing_repo_structure') and not st.session_state.get('repository_structure'):
+                st.markdown("""
+                <div class="processing-indicator">
+                    🤖 Agent is analyzing ASUCICREPO structure patterns...
+                </div>
+                """, unsafe_allow_html=True)
+                
+                result = background_analysis(
+                    run_repository_structure_analysis,
+                    agent,
+                    st.session_state.project_name
+                )
+                st.session_state.repository_structure = result
+                st.session_state.processing_repo_structure = False
+                st.rerun()
+            
+            elif st.session_state.get('repository_structure'):
+                with st.expander("📁 Repository Structure Analysis", expanded=False):
+                    st.markdown(st.session_state.repository_structure)
             
             # Separate tabs for TypeScript and Python
             ts_tab, py_tab = st.tabs(["TypeScript", "Python"])
             
             with ts_tab:
-                if st.button("🔧 Generate TypeScript CDK", key="ts_btn"):
+                if st.button("🔧 Generate TypeScript CDK + Structure", key="ts_btn"):
                     st.session_state.processing_typescript = True
                     st.rerun()
                 
@@ -672,35 +880,44 @@ Non-Functional Requirements:
                 if st.session_state.get('processing_typescript') and not st.session_state.get('typescript_cdk'):
                     st.markdown("""
                     <div class="processing-indicator">
-                        🤖 Agent is generating TypeScript CDK in the background...
+                        🤖 Agent is generating TypeScript CDK with ASUCICREPO patterns...
                     </div>
                     """, unsafe_allow_html=True)
                     
-                    # Run analysis in background
+                    # Run analysis in background with repository structure context
                     result = background_analysis(
                         run_typescript_cdk_generation,
                         agent,
                         st.session_state.requirements_text,
                         st.session_state.project_name,
-                        st.session_state.get('similar_projects_research', '')
+                        st.session_state.get('similar_projects_research', ''),
+                        st.session_state.get('repository_structure', '')
                     )
                     st.session_state.typescript_cdk = result
                     st.session_state.processing_typescript = False
                     st.rerun()
                 
                 elif st.session_state.get('typescript_cdk'):
-                    st.code(st.session_state.typescript_cdk, language="typescript")
+                    # Parse and display the structured output
+                    cdk_response = st.session_state.typescript_cdk
+                    st.markdown("### 📁 Complete Repository Structure & Code")
+                    
+                    # Display the response (which should now include file structure and complete code)
+                    st.markdown(cdk_response)
+                    
                     st.download_button(
-                        label="📥 Download TypeScript CDK",
+                        label="📥 Download Complete TypeScript CDK Project",
                         data=st.session_state.typescript_cdk,
-                        file_name=f"{st.session_state.project_name}_cdk.ts",
-                        mime="text/plain"
+                        file_name=f"{st.session_state.project_name}_typescript_cdk_complete.md",
+                        mime="text/markdown"
                     )
                 else:
-                    st.info("👆 Click 'Generate TypeScript CDK' to start")
+                    st.info("👆 Click 'Generate TypeScript CDK + Structure' to create complete project")
+                    if not st.session_state.get('repository_structure'):
+                        st.warning("⚠️ Consider analyzing repository structure first for better results")
             
             with py_tab:
-                if st.button("🐍 Generate Python CDK", key="py_btn"):
+                if st.button("🐍 Generate Python CDK + Structure", key="py_btn"):
                     st.session_state.processing_python = True
                     st.rerun()
                 
@@ -708,32 +925,55 @@ Non-Functional Requirements:
                 if st.session_state.get('processing_python') and not st.session_state.get('python_cdk'):
                     st.markdown("""
                     <div class="processing-indicator">
-                        🤖 Agent is generating Python CDK in the background...
+                        🤖 Agent is generating Python CDK with ASUCICREPO patterns...
                     </div>
                     """, unsafe_allow_html=True)
                     
-                    # Run analysis in background
+                    # Run analysis in background with repository structure context
                     result = background_analysis(
                         run_python_cdk_generation,
                         agent,
                         st.session_state.requirements_text,
                         st.session_state.project_name,
-                        st.session_state.get('similar_projects_research', '')
+                        st.session_state.get('similar_projects_research', ''),
+                        st.session_state.get('repository_structure', '')
                     )
                     st.session_state.python_cdk = result
                     st.session_state.processing_python = False
                     st.rerun()
                 
                 elif st.session_state.get('python_cdk'):
-                    st.code(st.session_state.python_cdk, language="python")
+                    # Parse and display the structured output
+                    cdk_response = st.session_state.python_cdk
+                    st.markdown("### 📁 Complete Repository Structure & Code")
+                    
+                    # Display the response (which should now include file structure and complete code)
+                    st.markdown(cdk_response)
+                    
                     st.download_button(
-                        label="📥 Download Python CDK",
+                        label="📥 Download Complete Python CDK Project",
                         data=st.session_state.python_cdk,
-                        file_name=f"{st.session_state.project_name}_cdk.py",
-                        mime="text/plain"
+                        file_name=f"{st.session_state.project_name}_python_cdk_complete.md",
+                        mime="text/markdown"
                     )
                 else:
-                    st.info("👆 Click 'Generate Python CDK' to start")
+                    st.info("👆 Click 'Generate Python CDK + Structure' to create complete project")
+                    if not st.session_state.get('repository_structure'):
+                        st.warning("⚠️ Consider analyzing repository structure first for better results")
+
+                # Also add these to the session state initialization section:
+                # Add 'repository_structure', 'processing_repo_structure' to the lists
+
+            # Updated analysis_types list:
+                analysis_types = [
+                    'similar_projects_research', 'requirements_analysis', 'architecture_analysis', 'typescript_cdk', 'python_cdk',
+                    'cost_analysis', 'documentation', 'project_initialized', 'repository_structure'
+                    ]
+
+                    # Updated processing_types list:
+            processing_types = [
+    'processing_similar_projects', 'processing_requirements', 'processing_architecture', 'processing_typescript',
+    'processing_python', 'processing_cost', 'processing_docs', 'processing_repo_structure']
         
         # Cost Analysis Tab
         with tab4:

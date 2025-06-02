@@ -240,26 +240,19 @@ streamlit run app.py --server.runOnSave true
 ### Typical Processing Times
 - **Similar Projects Research**: 30-60 seconds
 - **Requirements Analysis**: 15-30 seconds
-- **Architecture Design**: 45-90 seconds
-- **CDK Generation**: 30-60 seconds
-- **Cost Analysis**: 20-40 seconds
-- **Documentation**: 30-60 seconds
+- **Architecture Design**: 4-5 minutes
+- **CDK Generation**: 2-3 minutes
+- **Cost Analysis**: 45-60 seconds
+- **Documentation**: 50-60 seconds
 
 ### Optimization Tips
 - Initialize project once and run analyses incrementally
 - Use specific, well-structured requirements documents
 - Clear analysis results periodically to free memory
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Submit a pull request with detailed description
-
 ## 📄 License
 
-This project is developed for the ASU Cloud Innovation Center. Please refer to ASU's software usage policies.
+This project is developed for the ASU Cloud Innovation Center. 
 
 ## 🆘 Support
 
